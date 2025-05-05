@@ -1,3 +1,4 @@
+/*
 import 'package:betwise_app/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -141,3 +142,4 @@ class _CustomTextFieldState extends State<CustomTextField> {
     _obscureText.value = !_obscureText.value;
   }
 }
+*/

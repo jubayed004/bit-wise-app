@@ -1,35 +1,37 @@
-/*
+import 'package:betwise_app/core/custom_assets/assets.gen.dart';
+import 'package:betwise_app/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 class NavigationControllerMain extends GetxController {
   static NavigationControllerMain get to => Get.find();
+
   RxInt selectedNavIndex = 0.obs;
 
   List<Widget> getPages() {
-    return [HomePage(),HomePage(),HomePage(),HomePage(),HomePage(),];
+    return [
+      HomeScreen(),
+      HomeScreen(),
+      HomeScreen(),
+      HomeScreen(),
+    ];
   }
-*/
-/*
-  List<String> appbarTitle= [
-    AppStaticStrings.addToCard,
-    AppStaticStrings.orders,
-    AppStaticStrings.notifications,
-  ];
-*//*
 
 
   // List of icons for the navigation bar
-  final List<String> icons = [navHomeIcon, navListingIcon, navSellNowIcon, navMessageIcon, navProfileIcon];
+  final List<String> icons = [
+    "assets/icons/home.svg",
+    "assets/icons/searchoneicon.svg",
+    "assets/icons/notification.svg",
+    "assets/icons/Profileicon.svg",
+
+  ];
 
   // List of labels for the navigation bar
   final List<String> labels = [
-    AppStaticStrings.home,
-    AppStaticStrings.myListings,
-    AppStaticStrings.sellNow,
-    AppStaticStrings.messages,
-    AppStaticStrings.profile,
+    "Home",
+    "Search",
+    "Notification",
+    "Profile",
   ];
 }
-*/

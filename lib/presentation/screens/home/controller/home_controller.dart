@@ -2,6 +2,7 @@ import 'package:betwise_app/core/dependency/get_it_injection.dart';
 import 'package:betwise_app/presentation/screens/home/model/home_model.dart';
 import 'package:betwise_app/service/api_service.dart';
 import 'package:betwise_app/service/api_url.dart';
+import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
@@ -9,11 +10,12 @@ import 'package:get/get.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class HomeController extends GetxController{
-  final PagingController<int, PlaceItem> pagingController = PagingController(firstPageKey: 1);
+ final PagingController<int, String> pagingController = PagingController(firstPageKey: 1);
+ final TextEditingController searchController = TextEditingController();
   final ApiClient apiClient = serviceLocator();
   RxBool isLoadingMove = false.obs;
 
-  Future<void> getProject(int pageKey) async {
+/*  Future<void> getProject(int pageKey) async {
     if (isLoadingMove.value) return;
     isLoadingMove.value = true;
 
@@ -39,14 +41,14 @@ class HomeController extends GetxController{
     } finally {
       isLoadingMove.value = false;
     }
-  }
+  }*/
 
-
+/*
   @override
   void onInit() {
     pagingController.addPageRequestListener((pageKey) {
       getProject(pageKey);
     });
     super.onInit();
-  }
+  }*/
 }

@@ -21,11 +21,12 @@ class CustomButton extends StatelessWidget {
     this.borderWidth,
     this.borderRadius,
     this.isLoading = false,
-    this.icon = false,
-    this.iconSize = 24,
-
+    this.showIcon = false,
+    this.iconSize = 20,
+    this.borderColor,
   });
 
+  final Color? borderColor;
   final double height;
   final double? width;
   final Color? fillColor;
@@ -39,9 +40,8 @@ class CustomButton extends StatelessWidget {
   final double? borderWidth;
   final double? borderRadius;
   final bool? isLoading;
-  final bool? icon; // You can customize this to accept IconData if needed
+  final bool showIcon;
   final double iconSize;
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +49,13 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(),
-        margin: EdgeInsets.symmetric(
-            vertical: marginVertical, horizontal: marginHorizontal),
+        margin: EdgeInsets.symmetric(vertical: marginVertical, horizontal: marginHorizontal),
         alignment: Alignment.center,
         height: height,
         width: width,
         decoration: BoxDecoration(
           border: isBorder
-              ? Border.all(color: textColor, width: borderWidth ?? 1)
+              ? Border.all(color: borderColor ?? Colors.black, width: borderWidth ?? 2)  // Ensure fallback if borderColor is null
               : null,
           borderRadius: BorderRadius.circular(borderRadius ?? 6),
           color: fillColor,
@@ -72,12 +71,14 @@ class CustomButton extends StatelessWidget {
               text: title,
             ),
             Gap(4),
-            icon != null
-                ?     Assets.icons.arrowrighticon.svg(width: 20)
-                : SizedBox.shrink(), // If no icon is passed, this will show nothing
+            // Show icon only if showIcon is true
+            showIcon ? Assets.icons.arrowrighticon.svg(width: iconSize) : SizedBox.shrink(),
           ],
         ),
       ),
     );
   }
 }
+
+
+

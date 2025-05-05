@@ -1,6 +1,7 @@
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
 import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
 import 'package:betwise_app/presentation/widget/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
@@ -45,7 +46,7 @@ class ForgotPassScreen extends StatelessWidget {
                 CustomTextField(
                   hintText: "enter_your_email",
                   keyboardType: TextInputType.emailAddress,
-                  controller: _authController.forgetEmail,
+                  textEditingController: _authController.forgetEmail,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Email_is_required'.tr;

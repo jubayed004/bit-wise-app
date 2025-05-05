@@ -1,3 +1,4 @@
+/*
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/core/route/routes.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
@@ -43,7 +44,8 @@ class _SearchDrawerState extends State<SearchDrawer> {
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Obx(() {
-            /*switch (controller.countryCity.value) {
+            */
+/*switch (controller.countryCity.value) {
               case Status.loading:
                 return Center(child: CircularProgressIndicator());
               case Status.error:
@@ -52,13 +54,15 @@ class _SearchDrawerState extends State<SearchDrawer> {
                 return Center(child: NoDataCard(onTap: () => controller.getCountryCity()));
               case Status.internetError:
                 return Center(child: NoInternetCard(onTap: () => controller.getCountryCity()));
-              case Status.completed:*/
+              case Status.completed:*//*
+
                 return Column(
                   children: [
                     Gap(64),
                     Row(
                       children: [
-                        /*GestureDetector(
+                        */
+/*GestureDetector(
                           onTap: () {
                             AppRouter.route.pop();
                           },
@@ -67,7 +71,8 @@ class _SearchDrawerState extends State<SearchDrawer> {
                                   AppColors.whiteColor, BlendMode.srcIn),
                               height: 24,
                               width: 24),
-                        ),*/
+                        ),*//*
+
                       ],
                     ),
                     Gap(12),
@@ -262,10 +267,13 @@ class _SearchDrawerState extends State<SearchDrawer> {
                    )
                   ],
                 );
-           /* }*/
+           */
+/* }*//*
+
           }),
         ),
       ),
     );
   }
 }
+*/

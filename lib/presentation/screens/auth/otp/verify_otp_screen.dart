@@ -1,5 +1,8 @@
 import 'package:betwise_app/controller/get_controllers.dart';
+import 'package:betwise_app/core/route/route_path.dart';
+import 'package:betwise_app/core/route/routes.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_pin_code/custom_pin_code.dart';
 import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/widget/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/otp_text_field.dart';
@@ -35,22 +38,24 @@ class VerifyOtpScreen extends StatelessWidget {
     print(email);
 
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: AppColors.whiteColor,
+
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText(text: "6_digit_code".tr,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 24),
+                CustomText(text: "6-digit code",
+                    fontWeight: FontWeight.w600,
+
+                    fontSize: 30),
                 Gap(8),
                 CustomText(
-                  text: "${"please_enter_the_code_we_ve_sent_to".tr} $email",
+                  text: "${"Please enter the code we've sent to michelle.rivera@example.com"} $email",
                   color: AppColors.secondTextColor,
                   maxLines: 2,
                   textAlign: TextAlign.start,),
@@ -59,7 +64,7 @@ class VerifyOtpScreen extends StatelessWidget {
                 ///==================== PIN Put input Field =======================
                 Align(
                   alignment: Alignment.center,
-                  child: OtpTextField(
+                  child: CustomPinCode(
                     controller: isSignUp? _authController.accountVerifyOtp: _authController.verifyOtp,
                   ),
                 ),
@@ -84,13 +89,13 @@ class VerifyOtpScreen extends StatelessWidget {
                           child: isSignUp ? Text(
                             _authController.resendActiveLoading.value
                                 ? "loading"
-                                .tr
-                                : "resend_otp".tr,
+
+                                : "resend_otp",
                             style: const TextStyle(
                                 decoration: TextDecoration.underline),
                           ) : Text(
                             _authController.resendOTPLoading.value ? "loading"
-                                .tr : "resend_otp".tr,
+                                : "resend_otp",
                             style: const TextStyle(
                                 decoration: TextDecoration.underline),
                           ),
@@ -99,9 +104,13 @@ class VerifyOtpScreen extends StatelessWidget {
                   ],
                 ),
                 Gap(24),
-                Obx(() {
-                  return CustomButton(
-                    isLoading: isSignUp
+
+          CustomButton(
+                    onTap: () {
+                       AppRouter.route.goNamed(RoutePath.subscriptionScreen);
+                    },
+                    title: "Confirm",
+                 /*   isLoading: isSignUp
                         ? _authController.activeLoading.value
                         : _authController.otpLoading.value,
                     title: "confirm",
@@ -112,9 +121,9 @@ class VerifyOtpScreen extends StatelessWidget {
                       } else {
                         _authController.otpVerify(email: email);
                       }
-                    },
-                  );
-                }),
+                    },*/
+                  ),
+
                 Gap(24),
               ],
             ),

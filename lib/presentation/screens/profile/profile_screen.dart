@@ -1,3 +1,4 @@
+/*
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/core/route/route_path.dart';
 import 'package:betwise_app/core/route/routes.dart';
@@ -102,7 +103,8 @@ class ProfileScreen extends StatelessWidget {
                 }),
               ),
             ),
-           /* SliverPadding(
+           */
+/* SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8.0),
               sliver: SliverToBoxAdapter(
                 child: Column(
@@ -183,7 +185,8 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-            ),*/
+            ),*//*
+
           ],
         ),
       ),
@@ -245,11 +248,15 @@ class ProfileScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                            color:/* isSelected ? Color(0xFF2D6AEC) : */Colors.grey,
+                                            color:*/
+/* isSelected ? Color(0xFF2D6AEC) : *//*
+Colors.grey,
                                             width: 2,
                                           ),
                                         ),
-                                        child:/* isSelected ? */Center(
+                                        child:*/
+/* isSelected ? *//*
+Center(
                                           child: Container(
                                             width: 12,
                                             height: 12,
@@ -258,7 +265,9 @@ class ProfileScreen extends StatelessWidget {
                                               color: Color(0xFF2D6AEC),
                                             ),
                                           ),
-                                        ) /*: SizedBox.shrink(),*/
+                                        ) */
+/*: SizedBox.shrink(),*//*
+
                                       ),
                                       Gap(12),
                                       //CustomText(text: AppConstants.languages[index].languageName, color: AppColors.blackColor,)
@@ -379,7 +388,8 @@ class ProfileScreen extends StatelessWidget {
                     Gap(12),
                     CustomText(text: "or_whatsApp_chat".tr, color: AppColors.blackColor, fontWeight: FontWeight.w800, fontSize: 18),
                     Gap(12),
-                 /*   GestureDetector(
+                 */
+/*   GestureDetector(
                       onTap: () async {
                         try {
                           String phoneNumber = "+8801234567890";
@@ -396,11 +406,16 @@ class ProfileScreen extends StatelessWidget {
                           toastMessage(message: "could_not_launch_whatsApp");
                         }
                       },
-                      child: *//*Assets.images.whatsapp.image(
+                      child: *//*
+*/
+/*Assets.images.whatsapp.image(
                         height: 50,
                         width: 50,
                       ),*//*
-                    ),*/
+*/
+/*
+                    ),*//*
+
                   ],
                 ),
               ),
@@ -475,3 +490,4 @@ class ProfileBoxCard extends StatelessWidget {
     );
   }
 }
+*/

@@ -1,7 +1,9 @@
+/*
 import 'dart:io';
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/helper/image/network_image.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
 import 'package:betwise_app/utils/app_colors/app_colors.dart';
@@ -82,7 +84,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         CustomTextField(
                           hintText: "John".tr,
                           keyboardType: TextInputType.emailAddress,
-                          controller: controller.firstName,
+                          textEditingController: controller.firstName,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'first_name_is_required'.tr;
@@ -102,7 +104,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         CustomTextField(
                           hintText: "Doe".tr,
                           keyboardType: TextInputType.emailAddress,
-                          controller: controller.lastname,
+                          textEditingController: controller.lastname,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'last_name_is_required'.tr;
@@ -117,6 +119,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const Gap(12),
 
+*/
 /*              ///=============================== PHONE text ==================================
               CustomAlignText(text: "${ "phone_number".tr}:"),
               const Gap(8),
@@ -131,7 +134,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   return null;
                 },
               ),
-              const Gap(12),*/
+              const Gap(12),*//*
+
 
               ///=============================== Sign Up text ==================================
               const Gap(12),
@@ -155,3 +159,4 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 }
+*/

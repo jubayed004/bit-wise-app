@@ -34,7 +34,7 @@ final token = await dbHelper.getToken();
 
     Future.delayed(Duration(seconds: 2), () {
       if (token.isNotEmpty && !(JwtDecoder.isExpired(token))) {
-        AppRouter.route.goNamed(RoutePath.navScreen);
+        AppRouter.route.goNamed(RoutePath.navigationPage);
       } else {
         AppRouter.route.goNamed(RoutePath.onboardingScreen);
       }

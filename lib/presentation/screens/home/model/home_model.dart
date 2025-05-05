@@ -1,3 +1,4 @@
+/*
 
 class HomeModel {
   final bool? success;
@@ -164,3 +165,4 @@ class PlaceType {
     "__v": v,
   };
 }
+*/

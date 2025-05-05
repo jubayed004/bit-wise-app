@@ -1,6 +1,7 @@
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
 import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
 import 'package:betwise_app/presentation/widget/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
@@ -47,7 +48,7 @@ class SetNewPassword extends StatelessWidget {
                   hintText: "enter_your_password".tr,
                   isPassword: true,
                   keyboardType: TextInputType.text,
-                  controller: _authController.resetPassword,
+                  textEditingController: _authController.resetPassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Password_is_required'.tr;
@@ -67,9 +68,9 @@ class SetNewPassword extends StatelessWidget {
                   hintText: "confirm_your_password".tr,
                   isPassword: true,
                   keyboardType: TextInputType.text,
-                  controller: _authController.resetConfirmPassword,
+                  textEditingController: _authController.resetConfirmPassword,
                   validator: (value) {
-                    if (value.isEmpty) {
+                    if (value!.isEmpty) {
                       return "field_can_t_be_empty".tr;
                     } else if (value != _authController.resetPassword.text) {
                       return "password_should_match".tr;

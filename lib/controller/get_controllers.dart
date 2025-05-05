@@ -3,6 +3,7 @@
 
 import 'package:betwise_app/presentation/screens/auth/controller/auth_controller.dart';
 import 'package:betwise_app/presentation/screens/home/controller/home_controller.dart';
+import 'package:betwise_app/presentation/screens/nav/controller/navigation_controller.dart';
 import 'package:betwise_app/presentation/screens/onboarding/controller/onboarding_controller.dart';
 import 'package:betwise_app/presentation/screens/other/controller/other_controller.dart';
 import 'package:betwise_app/presentation/screens/profile/controller/profile_controller.dart';
@@ -37,13 +38,12 @@ class GetControllers {
     }
     return Get.find<OnboardingController>();
   }
-/*
-  NavController getNavController() {
-    if (!Get.isRegistered<NavController>()) {
-      Get.put(NavController());
+  NavigationControllerMain getNavigationControllerMain() {
+    if (!Get.isRegistered<NavigationControllerMain>()) {
+      Get.put(NavigationControllerMain());
     }
-    return Get.find<NavController>();
-  }*/
+    return Get.find<NavigationControllerMain>();
+  }
 
   OtherController getOtherController() {
     if (!Get.isRegistered<OtherController>()) {
@@ -67,12 +67,14 @@ class GetControllers {
     return Get.find<HomeController>();
   }
 
+/*
   SearchScreenController getSearchScreenController() {
     if (!Get.isRegistered<SearchScreenController>()) {
       Get.put(SearchScreenController());
     }
     return Get.find<SearchScreenController>();
   }
+*/
 
 
 /*  CategoriesController getCountryCityModel() {

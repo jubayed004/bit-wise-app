@@ -112,7 +112,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         suffixIcon: widget.isPassword
             ? GestureDetector(
                 onTap: toggle,
-                child: Icon(obscureText ? Icons.visibility_off: Icons.visibility , color: AppColors.primaryColor,),
+                child: Icon(obscureText ? Icons.visibility_off: Icons.visibility , color: AppColors.secondTextColor ,),
               )
             : widget.suffixIcon,
         suffixIconColor: widget.suffixIconColor,

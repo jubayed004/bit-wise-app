@@ -1,5 +1,6 @@
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               CustomTextField(
                 hintText: "************".tr,
                 isPassword: true,
-                controller: controller.password,
+                textEditingController: controller.password,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Password_is_required'.tr;
@@ -60,7 +61,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               CustomTextField(
                 hintText: "enter_your_new_password".tr,
                 isPassword: true,
-                controller: controller.newPassword,
+                textEditingController: controller.newPassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Password_is_required'.tr;
@@ -77,7 +78,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               CustomTextField(
                 hintText: "re_enter_your_new_password".tr,
                 isPassword: true,
-                controller: controller.confirmPassword,
+                textEditingController: controller.confirmPassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please_confirm_your_password'.tr;

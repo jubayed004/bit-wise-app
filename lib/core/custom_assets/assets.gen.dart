@@ -206,6 +206,9 @@ class $AssetsImagesGen {
   AssetGenImage get subscriptionimage =>
       const AssetGenImage('assets/images/subscriptionimage.png');
 
+  /// File path: assets/images/warning.png
+  AssetGenImage get warning => const AssetGenImage('assets/images/warning.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     homeimage,
@@ -216,6 +219,7 @@ class $AssetsImagesGen {
     searchimageone,
     splashimage,
     subscriptionimage,
+    warning,
   ];
 }
 

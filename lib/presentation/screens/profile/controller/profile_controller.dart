@@ -24,7 +24,7 @@ class ProfileController extends GetxController {
   final Rx<ProfileModel> profile = ProfileModel().obs;
   final RxBool isAdmin = false.obs;
 
-  Future<void> getProfile() async{
+/*  Future<void> getProfile() async{
     loadingMethod(Status.completed);
     try{
       loadingMethod(Status.loading);
@@ -48,7 +48,7 @@ class ProfileController extends GetxController {
       loadingMethod(Status.error);
     }
 
-  }
+  }*/
 
   /// ============================= PUT Profile Update =====================================
 
@@ -57,7 +57,7 @@ class ProfileController extends GetxController {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastname = TextEditingController();
 
-  Future<void> pickImage() async {
+/*  Future<void> pickImage() async {
     XFile? image = await _imagePicker.pickImage(source: ImageSource.gallery, imageQuality: 80);
     if (image != null) {
       selectedImage.value = image;
@@ -111,5 +111,5 @@ class ProfileController extends GetxController {
       getProfile(),
     ]);
     super.onReady();
-  }
+  }*/
 }

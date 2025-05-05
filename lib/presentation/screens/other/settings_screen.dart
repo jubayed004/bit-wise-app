@@ -1,6 +1,7 @@
 import 'package:betwise_app/controller/get_controllers.dart';
 import 'package:betwise_app/core/route/routes.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
 import 'package:flutter/material.dart';

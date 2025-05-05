@@ -3,17 +3,14 @@ import 'package:betwise_app/core/route/route_path.dart';
 import 'package:betwise_app/core/route/routes.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
 import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
+import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
-import 'package:betwise_app/presentation/widget/custom_text/custom_text.dart';
-import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
 import 'package:betwise_app/utils/app_colors/app_colors.dart';
-
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
-
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -23,56 +20,65 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    final isDarkMode = Theme
-        .of(context)
-        .brightness == Brightness.dark;
+    final height = MediaQuery.of(context).size.height;
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-
+      backgroundColor: AppColors.whiteColor,
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomText(text: " Welcome Back! ",
-                    fontWeight: FontWeight.w800,
-                    fontSize: 24),
-                CustomText(text: "we_may_store_and_send",
-                    color: AppColors.secondTextColor),
+                CustomText(
+                  text: '"Welcome Back!"',
+                  fontWeight: FontWeight.w800,
+                  fontSize: 24,
+                ),
+                CustomText(
+                  text: "Access your account and stay ahead with expert picks.",
+                  color: AppColors.secondTextColor,
+                  maxLines: 3,
+
+                ),
                 Gap(24),
-                CustomAlignText(text: "email"),
+                CustomAlignText(text: "Email"),
                 Gap(8.0),
                 CustomTextField(
-                  hintText: "enter_your_email",
+                  hintText: "michelle.rivera@example.com",
+                  fieldBorderColor: AppColors.secondTextColor,
+                  fieldBorderRadius: 10,
+                  fillColor: Colors.white,
                   keyboardType: TextInputType.emailAddress,
-                  controller: _authController.email,
+                  textEditingController: _authController.email,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Email_is_required';
                     }
                     final emailRegex = RegExp(
-                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                    );
                     if (!emailRegex.hasMatch(value)) {
                       return 'Enter_a_valid_email';
                     }
                     return null;
                   },
                 ),
-                Gap(12),
-                CustomAlignText(text: "password"),
+                Gap(24),
+                CustomAlignText(text: "PassWord"),
                 Gap(8.0),
                 CustomTextField(
-                  hintText: "enter_your_password",
+
+                  fieldBorderColor: AppColors.secondTextColor,
+                  fieldBorderRadius: 10,
+                  fillColor: Colors.white,
+                  hintText: "•••••••••••••",
                   isPassword: true,
                   keyboardType: TextInputType.text,
-                  controller: _authController.password,
+                  textEditingController: _authController.password,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Password_is_required'.tr;
@@ -85,7 +91,6 @@ class SignInScreen extends StatelessWidget {
                 ),
                 Gap(5),
 
-                // Remember me & Forgot password row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -94,7 +99,7 @@ class SignInScreen extends StatelessWidget {
                         onTap: () {
                           // Toggling the rememberMe value
                           _authController.rememberMe.value =
-                          !_authController.rememberMe.value;
+                              !_authController.rememberMe.value;
                         },
                         child: Row(
                           children: [
@@ -103,25 +108,25 @@ class SignInScreen extends StatelessWidget {
                               height: 16.h,
                               width: 16.w,
                               decoration: BoxDecoration(
-                                color: _authController.rememberMe.value
-                                    ? AppColors.blackColor
-                                    : Colors.transparent,
+                                color:
+                                    _authController.rememberMe.value
+                                        ? AppColors.blackColor
+                                        : Colors.transparent,
                                 border: Border.all(
                                   width: .5.sp,
-                                  color: Theme
-                                      .of(context)
-                                      .primaryColorDark,
+                                  color: AppColors.secondTextColor
                                 ),
                                 borderRadius: BorderRadius.circular(4.sp),
                               ),
                               child: Center(
-                                child: _authController.rememberMe.value
-                                    ? Icon(
-                                  Icons.check,
-                                  color: AppColors.whiteColor,
-                                  size: 14.sp,
-                                )
-                                    : const SizedBox(),
+                                child:
+                                    _authController.rememberMe.value
+                                        ? Icon(
+                                          Icons.check,
+                                          color: AppColors.whiteColor,
+                                          size: 14.sp,
+                                        )
+                                        : const SizedBox(),
                               ),
                             ),
                             CustomText(
@@ -137,10 +142,10 @@ class SignInScreen extends StatelessWidget {
 
                     GestureDetector(
                       onTap: () {
-                        //  Get.toNamed(AppRoute.forgotPassword);
+                        AppRouter.route.pushNamed(RoutePath.forgotPassScreen);
                       },
                       child: CustomText(
-                        text: "Forget Password?",
+                        text: "Forget Password ?",
                         color: AppColors.greenColor,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w500,
@@ -155,100 +160,52 @@ class SignInScreen extends StatelessWidget {
                     Container(
                       height: 1.h,
                       color: AppColors.secondTextColor,
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width * .38,
+                      width: MediaQuery.of(context).size.width * .38,
                     ),
-                    CustomText(
-                      text: "OR",
-                      left: 8.w,
-                      right: 8.w,
-                    ),
+                    CustomText(text: "OR", left: 8.w, right: 8.w),
                     Container(
                       height: 1.h,
                       color: AppColors.secondTextColor,
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width * .38,
+                      width: MediaQuery.of(context).size.width * .38,
                     ),
                   ],
                 ),
                 Gap(24),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Don’t have an account?',
+                      style: TextStyle(color: AppColors.secondTextColor, fontSize: 16,fontWeight: FontWeight.w400 ),
+                      children: [
+                        TextSpan(
+                          text: " Sign Up",
+                          style: TextStyle(color: AppColors.blueColor,fontWeight: FontWeight.w600),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                             AppRouter.route.goNamed(RoutePath.signUpScreen);
+                            },
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+                Gap(24),
                 Obx(() {
                   return CustomButton(
-                      isLoading: _authController.loginLoading.value,
-                      title: "login",
-                      onTap: () {
-                        if (_formKey.currentState!.validate()) {
-                          _authController.login();
-                        }
-                      });
-                }),
-                Gap(24),
-                CustomText(text: "or_login_with"),
-                Gap(12),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 48,
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: AppColors.whiteColor)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        //Assets.icons.google.svg(),
-                        Gap(8),
-                        CustomText(
-                          text: "Login_with_google",
-                          color: AppColors.whiteColor,
-                          fontSize: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Gap(12),
-                GestureDetector(
-                  onTap: () {
+                    isLoading: _authController.loginLoading.value,
+                    title: " Log In",
 
-                  },
-                  child: Container(
-                    height: 48,
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: AppColors.whiteColor)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        //Assets.icons.apple.svg(),
-                        Gap(8),
-                        CustomText(
-                          text: "login_with_apple",
-                          color: AppColors.whiteColor,
-                          fontSize: 16,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Gap(24),
+                    onTap: () {
+                   AppRouter.route.goNamed(RoutePath.navigationPage);
+                     /* if (_formKey.currentState!.validate()) {
+                        _authController.login();
+                      }*/
+                    },
+                  );
+                }),
+
               ],
             ),
           ),

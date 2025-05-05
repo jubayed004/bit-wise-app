@@ -5,6 +5,7 @@ import 'package:betwise_app/presentation/screens/auth/otp/verify_otp_screen.dart
 import 'package:betwise_app/presentation/screens/auth/password/set_new_password.dart';
 import 'package:betwise_app/presentation/screens/auth/sign_in/sign_in.dart';
 import 'package:betwise_app/presentation/screens/auth/sign_up/sign_up.dart';
+import 'package:betwise_app/presentation/screens/nav/navigation_page.dart';
 import 'package:betwise_app/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:betwise_app/presentation/screens/other/change_password_screen.dart';
 import 'package:betwise_app/presentation/screens/other/privacy_policy.dart';
@@ -12,6 +13,7 @@ import 'package:betwise_app/presentation/screens/other/settings_screen.dart';
 import 'package:betwise_app/presentation/screens/other/terms_of_condition.dart';
 import 'package:betwise_app/presentation/screens/profile/edit/edit_profile_screen.dart';
 import 'package:betwise_app/presentation/screens/splash/splash_screen.dart';
+import 'package:betwise_app/presentation/screens/subscription/subscription_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'route_path.dart';
@@ -84,22 +86,19 @@ class AppRouter {
       ),
 
       ///======================= Navigation Route =======================
-/*      GoRoute(
-        name: RoutePath.navScreen,
-        path: RoutePath.navScreen.addBasePath,
+      GoRoute(
+        name: RoutePath.navigationPage,
+        path: RoutePath.navigationPage.addBasePath,
         pageBuilder:
             (context, state) => _buildPageWithAnimation(
               child: NavigationPage(
-                index:
-                    state.extra != null && (state.extra is int)
-                        ? state.extra as int
-                        : 0,
+                index: state.extra != null && (state.extra is int) ? state.extra as int : 0,
               ),
               state: state,
             ),
-      ),*/
+      ),
 
-      GoRoute(
+  /*    GoRoute(
         name: RoutePath.editProfileScreen,
         path: RoutePath.editProfileScreen.addBasePath,
         pageBuilder:
@@ -107,7 +106,7 @@ class AppRouter {
               child: const EditProfileScreen(),
               state: state,
             ),
-      ),
+      ),*/
  /*     GoRoute(
         name: RoutePath.notifyScreen,
         path: RoutePath.notifyScreen.addBasePath,
@@ -152,6 +151,17 @@ class AppRouter {
               state: state,
             ),
       ),
+
+      GoRoute(
+        name: RoutePath.subscriptionScreen,
+        path: RoutePath.subscriptionScreen.addBasePath,
+        pageBuilder:
+            (context, state) => _buildPageWithAnimation(
+              child: SubscriptionScreen(),
+              state: state,
+            ),
+      ),
+
     ],
   );
 
