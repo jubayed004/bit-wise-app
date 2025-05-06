@@ -4,6 +4,7 @@ import 'package:betwise_app/helper/toast_message/toast_message.dart';
 import 'package:betwise_app/presentation/screens/notify/model/notify_model.dart';
 import 'package:betwise_app/service/api_service.dart';
 import 'package:betwise_app/service/api_url.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -11,7 +12,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 class NotifyController extends GetxController {
   final ApiClient apiClient = serviceLocator();
 
-  final PagingController<int, Result> pagingController = PagingController(firstPageKey: 1);
+  final PagingController<int, Widget> pagingController = PagingController(firstPageKey: 1);
 
   RxBool isLoadingMove = false.obs;
 
@@ -23,8 +24,11 @@ class NotifyController extends GetxController {
     });
   }
 
+
+
   Future<void> getNotifications(int pageKey) async {
-    if (isLoadingMove.value) return;
+  //  pagingController.appendLastPage();
+/*    if (isLoadingMove.value) return;
     isLoadingMove.value = true;
 
     try {
@@ -49,12 +53,12 @@ class NotifyController extends GetxController {
       pagingController.error = 'Something went wrong';
     } finally {
       isLoadingMove.value = false;
-    }
+    }*/
   }
 
 
   Future<void> deleteNotification( String id) async {
-    try {
+/*    try {
       final response = await apiClient.delete(
         url: ApiUrl.deleteNotification( id: id), body: {},
       );
@@ -67,7 +71,7 @@ class NotifyController extends GetxController {
       }
     } catch (e) {
       toastMessage(message: "Something went wrong");
-    }
+    }*/
   }
 
 

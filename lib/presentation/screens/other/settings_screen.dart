@@ -1,9 +1,18 @@
 import 'package:betwise_app/controller/get_controllers.dart';
+import 'package:betwise_app/core/custom_assets/assets.gen.dart';
+import 'package:betwise_app/core/route/route_path.dart';
 import 'package:betwise_app/core/route/routes.dart';
+import 'package:betwise_app/helper/dialog/show_custom_animated_dialog.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
+import 'package:betwise_app/presentation/screens/other/widget/setting_notification_card.dart';
+import 'package:betwise_app/presentation/screens/profile/profile_screen.dart';
+import 'package:betwise_app/presentation/screens/profile/widgets/profile_box_card.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
+import 'package:betwise_app/presentation/widget/back_button/back_button.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
+import 'package:betwise_app/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -21,102 +30,106 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("settings"),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: CustomText(text: "Account Setting",fontWeight: FontWeight.w500,fontSize: 16,),
+        leading:CustomBackButton(
+          onTap: () {
+            AppRouter.route.pop();
+          },
+        )
+
+
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: Column(
           children: [
-      /*      ProfileBoxCard(
-              icons: Assets.icons.lock.svg(),
-              text: "change_password".tr,
-              onTap: () {
-                AppRouter.route.pushNamed(RoutePath.changePasswordScreen);
-              },
+            SettingNotificationCard(
+              icons: Assets.icons.notificationmail.svg(),
+              text: "Send Notification On Mail",
+              onTap: (){},
             ),
             ProfileBoxCard(
-              icons: Assets.icons.userDelete.svg(),
-              text: "delete_account".tr,
-              onTap: () => showDeleteConfirmDialog(context),
-            ),*/
+              icons: Assets.icons.mysubscip.svg(),
+              text: "My Subscription",
+              onTap: () => AppRouter.route.pushNamed(RoutePath.subscriptionStatusScreen),
+            ),
+            ProfileBoxCard(
+              icons: Assets.icons.changepass.svg(),
+              text: "Change Password",
+            onTap: () {
+    AppRouter.route.pushNamed(RoutePath.changePasswordScreen);
+    },
+            ),
+            ProfileBoxCard(
+              iconColor: Colors.red,
+              color: Colors.red,
+              icons: Assets.icons.deletedaccount.svg(),
+              text: "Delete Account",
+              onTap: () =>
+
+                  showCustomAnimatedDialog(
+                animationSrc: "assets/images/warning.png",
+                context: context,
+                title: "Warning",
+                subtitle: "Are you sure you want to permanently delete your account? This action cannot be undone.",
+                actionButton: [
+                  CustomButton(
+                    width: double.infinity,
+                    height: 36,
+                    fillColor: Colors.white,                 // White background
+                    borderWidth: 1,                          // Border width
+                    borderColor: AppColors.greenColor,               // Border color (black)
+                    onTap: () {
+                      AppRouter.route.pop();
+                    },
+                    textColor: AppColors.greenColor,
+                    title: "Cancel",
+                    isBorder: true,
+                    fontSize: 14,// Ensure the border is visible
+                  ),
+                  CustomButton(
+                    width: double.infinity,
+                    height: 36,
+                    onTap: ()async{
+
+                      AppRouter.route.pop();
+                      await Future.delayed(Duration(milliseconds: 100));
+                      showCustomAnimatedDialog(
+                        context: context,
+                        title: "Success",
+                        subtitle: "Your account has been deleted successfully.",
+                        animationSrc: "assets/animation/success.json",  // Path to your Lottie animation
+                        isDismissible: true,
+                        actionButton: [
+                          CustomButton(
+                            height: 36,
+                            width: 100,
+                            onTap: () {
+                              AppRouter.route.goNamed(RoutePath.signInScreen);  // Navigate
+                            },
+                            title: "Confirm",
+                            fontSize: 14,
+                          ),
+                        ],
+                      );
+
+                    },
+                    title: " Confirm",
+                    fontSize: 14,
+
+                  ),
+                ],
+              )
+            ),
           ],
         ),
       ),
     );
   }
 
-  void showDeleteConfirmDialog(BuildContext context) => showGeneralDialog(
-    context: context,
-    barrierDismissible: true,
-    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
-    barrierColor: Colors.black.withValues(alpha: 0.5),
-    transitionDuration: const Duration(milliseconds: 600),
-    pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
-      final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-      return Dialog(
-        backgroundColor: isDarkMode ? const Color(0xFF1C1B1B) : const Color(0xFFF4F4F5),
-        insetPadding: const EdgeInsets.all(8),
-        insetAnimationDuration: const Duration(milliseconds: 600),
-        insetAnimationCurve: Curves.easeIn,
-        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text("delete_account".tr, textAlign: TextAlign.center, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
-                Text("are_you_sure_you_want_delete_account".tr, textAlign: TextAlign.center, maxLines: 2, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
-                const Gap(12),
-                const CustomAlignText(text: "password"),
-                const Gap(8),
-                CustomTextField(
-                  hintText: "enter_your_password".tr,
-                  isPassword: true,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Password_is_required'.tr;
-                    }
-                    if (value.length < 6) {
-                      return 'Password_must_be_at_least_6_characters'.tr;
-                    }
-                    return null;
-                  },
-                ),
-                const Gap(12),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: CustomButton(title: "yes", onTap: (){
-                        if(_formKey.currentState!.validate()){
-                           controller.deleteAccount();
-                        }
-                      },),
-                    ),
-                    const Gap(12),
-                    Expanded(
-                      child: CustomButton(title: "cancel", onTap: ()=>AppRouter.route.pop(),),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    },
-    transitionBuilder: (context, animation, secondaryAnimation, child) {
-      return FadeTransition(
-        opacity: animation,
-        child: ScaleTransition(
-          scale: animation,
-          child: child,
-        ),
-      );
-    },
-  );
+
 }

@@ -18,6 +18,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     return AppBar(
+      backgroundColor: Colors.white,
       titleSpacing: 0,
       leading: Padding(
         padding: const EdgeInsets.all(5.0),

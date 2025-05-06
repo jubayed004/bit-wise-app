@@ -1,3 +1,4 @@
+/*
 
 class NotificationModel {
   final bool? success;
@@ -118,3 +119,4 @@ class Result {
     "__v": v,
   };
 }
+*/

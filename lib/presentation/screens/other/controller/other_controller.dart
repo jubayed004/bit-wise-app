@@ -16,12 +16,12 @@ class OtherController extends GetxController{
 
 
   /// ============================= GET Terms Condition =====================================
-  final Rx<OtherModel> termsData = OtherModel().obs;
+  //final Rx<OtherModel> termsData = OtherModel().obs;
   var termsLoading = Status.completed.obs;
   termsLoadingMethod(Status status) => termsLoading.value = status;
 
   Future<void> getTermsCondition() async {
-    try{
+/*    try{
       termsLoadingMethod(Status.loading);
       var response = await apiClient.get(url: ApiUrl.getTerms());
       if (response.statusCode == 200) {
@@ -38,17 +38,17 @@ class OtherController extends GetxController{
       }
     }catch(e){
       termsLoadingMethod(Status.error);
-    }
+    }*/
 
   }
 
   /// ============================= GET Privacy Policy =====================================
-  final Rx<OtherModel> privacyData = OtherModel().obs;
+ // final Rx<OtherModel> privacyData = OtherModel().obs;
   var privacyLoading = Status.completed.obs;
   privacyLoadingMethod(Status status) => privacyLoading.value = status;
 
   Future<void> getPrivacyPolicy() async {
-    try{
+/*    try{
       privacyLoadingMethod(Status.loading);
       var response = await apiClient.get(url: ApiUrl.privacyPolicy());
       if (response.statusCode == 200) {
@@ -65,7 +65,7 @@ class OtherController extends GetxController{
       }
     }catch(e){
       privacyLoadingMethod(Status.error);
-    }
+    }*/
 
   }
 
@@ -77,7 +77,7 @@ class OtherController extends GetxController{
   final confirmPassword = TextEditingController();
 
   Future<void> changePassword() async {
-    try{
+ /*   try{
       changePasswordLoadingMethod(true);
 
       final body = {
@@ -98,7 +98,7 @@ class OtherController extends GetxController{
     }catch(e){
       toastMessage();
       changePasswordLoadingMethod(false);
-    }
+    }*/
 
   }
 
@@ -108,6 +108,7 @@ class OtherController extends GetxController{
   final deletePassword = TextEditingController();
 
   void deleteAccount() async {
+/*
     try{
       deleteMethod(true);
       final body = {
@@ -126,6 +127,7 @@ class OtherController extends GetxController{
     }catch (err){
       deleteMethod(false);
     }
+*/
 
   }
   @override

@@ -23,6 +23,7 @@ class RoutePath{
   static const String privacyPolicy = 'privacyPolicy';
   static const String termsOfCondition = 'termsOfCondition';
   static const String subscriptionScreen = 'subscriptionScreen';
+  static const String subscriptionStatusScreen = 'subscriptionStatusScreen';
 
 
 

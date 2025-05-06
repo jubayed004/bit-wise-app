@@ -8,7 +8,7 @@ void showCustomAnimatedDialog({
   String? title,
   String? subtitle,
   List<Widget>? actionButton,
-  required String animationSrc, // Dynamically change the animation source
+ String? animationSrc, // Dynamically change the animation source
 }) {
   showGeneralDialog(
     context: context,
@@ -38,7 +38,7 @@ void showCustomAnimatedDialog({
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CustomImage(
-                    imageSrc: animationSrc, // Pass dynamic image source (can be Lottie, PNG, or SVG)
+                    imageSrc: animationSrc ?? "", // Pass dynamic image source (can be Lottie, PNG, or SVG)
                     width: 100,
                     height: 100,
                     boxFit: BoxFit.contain,

@@ -45,6 +45,10 @@ class $AssetsIconsGen {
   SvgGenImage get profileicon =>
       const SvgGenImage('assets/icons/Profileicon.svg');
 
+  /// File path: assets/icons/alternate_email.svg
+  SvgGenImage get alternateEmail =>
+      const SvgGenImage('assets/icons/alternate_email.svg');
+
   /// File path: assets/icons/arrow.svg
   SvgGenImage get arrow => const SvgGenImage('assets/icons/arrow.svg');
 
@@ -52,12 +56,11 @@ class $AssetsIconsGen {
   SvgGenImage get arrowrighticon =>
       const SvgGenImage('assets/icons/arrowrighticon.svg');
 
-  /// File path: assets/icons/betwisepicks.svg
-  SvgGenImage get betwisepicks =>
-      const SvgGenImage('assets/icons/betwisepicks.svg');
-
   /// File path: assets/icons/bwpicon.svg
   SvgGenImage get bwpicon => const SvgGenImage('assets/icons/bwpicon.svg');
+
+  /// File path: assets/icons/call.svg
+  SvgGenImage get call => const SvgGenImage('assets/icons/call.svg');
 
   /// File path: assets/icons/callus.svg
   SvgGenImage get callus => const SvgGenImage('assets/icons/callus.svg');
@@ -72,6 +75,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/deletedaccount.svg
   SvgGenImage get deletedaccount =>
       const SvgGenImage('assets/icons/deletedaccount.svg');
+
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
 
   /// File path: assets/icons/filltericon.svg
   SvgGenImage get filltericon =>
@@ -119,6 +125,9 @@ class $AssetsIconsGen {
   SvgGenImage get privacypolice =>
       const SvgGenImage('assets/icons/privacypolice.svg');
 
+  /// File path: assets/icons/remove.svg
+  SvgGenImage get remove => const SvgGenImage('assets/icons/remove.svg');
+
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
 
@@ -126,12 +135,23 @@ class $AssetsIconsGen {
   SvgGenImage get searchiconnav =>
       const SvgGenImage('assets/icons/searchiconnav.svg');
 
+  /// File path: assets/icons/searchoneicon.svg
+  SvgGenImage get searchoneicon =>
+      const SvgGenImage('assets/icons/searchoneicon.svg');
+
   /// File path: assets/icons/setting.svg
   SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
 
   /// File path: assets/icons/stats&badges.svg
   SvgGenImage get statsBadges =>
       const SvgGenImage('assets/icons/stats&badges.svg');
+
+  /// File path: assets/icons/subicon.svg
+  SvgGenImage get subicon => const SvgGenImage('assets/icons/subicon.svg');
+
+  /// File path: assets/icons/subtwoicon.svg
+  SvgGenImage get subtwoicon =>
+      const SvgGenImage('assets/icons/subtwoicon.svg');
 
   /// File path: assets/icons/tram&condi.svg
   SvgGenImage get tramCondi => const SvgGenImage('assets/icons/tram&condi.svg');
@@ -142,14 +162,16 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
     profileicon,
+    alternateEmail,
     arrow,
     arrowrighticon,
-    betwisepicks,
     bwpicon,
+    call,
     callus,
     camera,
     changepass,
     deletedaccount,
+    edit,
     filltericon,
     givefeedback,
     helpsupport,
@@ -163,10 +185,14 @@ class $AssetsIconsGen {
     onb3,
     prediction,
     privacypolice,
+    remove,
     search,
     searchiconnav,
+    searchoneicon,
     setting,
     statsBadges,
+    subicon,
+    subtwoicon,
     tramCondi,
     vs,
   ];
@@ -175,9 +201,17 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/bitwisepicksimage.png
+  AssetGenImage get bitwisepicksimage =>
+      const AssetGenImage('assets/images/bitwisepicksimage.png');
+
   /// File path: assets/images/homeimage.png
   AssetGenImage get homeimage =>
       const AssetGenImage('assets/images/homeimage.png');
+
+  /// File path: assets/images/homethreeimge.png
+  AssetGenImage get homethreeimge =>
+      const AssetGenImage('assets/images/homethreeimge.png');
 
   /// File path: assets/images/hometwo.png
   AssetGenImage get hometwo => const AssetGenImage('assets/images/hometwo.png');
@@ -211,7 +245,9 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+    bitwisepicksimage,
     homeimage,
+    homethreeimge,
     hometwo,
     onboardingoneimage,
     onboardingthreeimage,

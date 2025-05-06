@@ -1,5 +1,7 @@
 import 'package:betwise_app/core/custom_assets/assets.gen.dart';
 import 'package:betwise_app/presentation/screens/home/home_screen.dart';
+import 'package:betwise_app/presentation/screens/profile/profile_screen.dart';
+import 'package:betwise_app/presentation/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,9 +13,9 @@ class NavigationControllerMain extends GetxController {
   List<Widget> getPages() {
     return [
       HomeScreen(),
+      SearchScreen(),
       HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
+      ProfileScreen(),
     ];
   }
 
@@ -24,7 +26,6 @@ class NavigationControllerMain extends GetxController {
     "assets/icons/searchoneicon.svg",
     "assets/icons/notification.svg",
     "assets/icons/Profileicon.svg",
-
   ];
 
   // List of labels for the navigation bar

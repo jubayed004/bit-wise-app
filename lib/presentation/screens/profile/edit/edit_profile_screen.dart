@@ -119,8 +119,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               const Gap(12),
 
-*/
-/*              ///=============================== PHONE text ==================================
+              ///=============================== PHONE text ==================================
               CustomAlignText(text: "${ "phone_number".tr}:"),
               const Gap(8),
               CustomTextField(
@@ -134,7 +133,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   return null;
                 },
               ),
-              const Gap(12),*//*
+              const Gap(12),
 
 
               ///=============================== Sign Up text ==================================

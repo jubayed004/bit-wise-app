@@ -1,3 +1,4 @@
+/*
 class OtherModel {
   final bool? success;
   final String? message;
@@ -33,3 +34,4 @@ class Data {
     updatedAt: json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
   );
 }
+*/

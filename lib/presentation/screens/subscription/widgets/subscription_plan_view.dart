@@ -1,6 +1,6 @@
 import 'package:betwise_app/core/route/route_path.dart';
 import 'package:betwise_app/core/route/routes.dart';
-import 'package:betwise_app/helper/dialog/custom_dialog.dart';
+import 'package:betwise_app/helper/dialog/show_custom_animated_dialog.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
 import 'package:betwise_app/utils/app_colors/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -102,27 +102,19 @@ class SubscriptionPlanView extends StatelessWidget {
                  animationSrc: "assets/animation/success.json",  // Path to your Lottie animation
                  isDismissible: true,
                  actionButton: [
-                   Expanded(
-                     child: SizedBox(
-                       width: 50,
-                       child: CustomButton(
-                         height: 36,
-                         onTap: () {
-                           // Close the success dialog
-                           //Navigator.pop(context);  // Close the success dialog
-                           // Navigate to the subscription screen
-                           AppRouter.route.goNamed(RoutePath.signInScreen);  // Navigate
-                         },
-                         title: "Confirm",
-                         fontSize: 14,
-                       ),
-                     ),
+                   CustomButton(
+                     height: 36,
+                     width: 100,
+                     onTap: () {
+                       AppRouter.route.goNamed(RoutePath.signInScreen);  // Navigate
+                     },
+                     title: "Confirm",
+                     fontSize: 14,
                    ),
                  ],
                );
-
-
-               /*  showCustomAnimatedDialog(
+/*
+                 showCustomAnimatedDialog(
                  animationSrc: "assets/images/warning.png",
                  context: context,
                  title: "Warning",
@@ -135,7 +127,7 @@ class SubscriptionPlanView extends StatelessWidget {
                      borderWidth: 1,                          // Border width
                      borderColor: AppColors.greenColor,               // Border color (black)
                      onTap: () {
-                       // Your action
+                      AppRouter.route.pop();
                      },
                      textColor: AppColors.greenColor,
                      title: "Cancel",
@@ -145,8 +137,10 @@ class SubscriptionPlanView extends StatelessWidget {
                    CustomButton(
                      width: double.infinity,
                      height: 36,
-                     onTap: (){
+                     onTap: ()async{
 
+                       AppRouter.route.pop();
+                       await Future.delayed(Duration(milliseconds: 100));
 
 
                      },
