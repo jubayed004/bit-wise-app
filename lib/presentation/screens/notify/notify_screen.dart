@@ -27,6 +27,7 @@ class _NotifyScreenState extends State<NotifyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,

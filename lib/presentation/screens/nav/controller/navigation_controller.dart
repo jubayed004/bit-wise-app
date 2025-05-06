@@ -1,5 +1,6 @@
 import 'package:betwise_app/core/custom_assets/assets.gen.dart';
 import 'package:betwise_app/presentation/screens/home/home_screen.dart';
+import 'package:betwise_app/presentation/screens/notify/notify_screen.dart';
 import 'package:betwise_app/presentation/screens/profile/profile_screen.dart';
 import 'package:betwise_app/presentation/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class NavigationControllerMain extends GetxController {
     return [
       HomeScreen(),
       SearchScreen(),
-      HomeScreen(),
+      NotifyScreen(),
       ProfileScreen(),
     ];
   }
