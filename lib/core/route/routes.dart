@@ -9,6 +9,7 @@ import 'package:betwise_app/presentation/screens/nav/navigation_page.dart';
 import 'package:betwise_app/presentation/screens/notify/notify_screen.dart';
 import 'package:betwise_app/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:betwise_app/presentation/screens/other/change_password_screen.dart';
+import 'package:betwise_app/presentation/screens/other/help_faq_screen.dart';
 import 'package:betwise_app/presentation/screens/other/privacy_policy.dart';
 import 'package:betwise_app/presentation/screens/other/settings_screen.dart';
 import 'package:betwise_app/presentation/screens/other/terms_of_condition.dart';
@@ -100,7 +101,7 @@ class AppRouter {
             ),
       ),
 
-  /*    GoRoute(
+      GoRoute(
         name: RoutePath.editProfileScreen,
         path: RoutePath.editProfileScreen.addBasePath,
         pageBuilder:
@@ -108,7 +109,7 @@ class AppRouter {
               child: const EditProfileScreen(),
               state: state,
             ),
-      ),*/
+      ),
       GoRoute(
         name: RoutePath.notifyScreen,
         path: RoutePath.notifyScreen.addBasePath,
@@ -149,6 +150,15 @@ class AppRouter {
         pageBuilder:
             (context, state) => _buildPageWithAnimation(
               child: TermsOfCondition(),
+              state: state,
+            ),
+      ),
+      GoRoute(
+        name: RoutePath.helpFaqScreen,
+        path: RoutePath.helpFaqScreen.addBasePath,
+        pageBuilder:
+            (context, state) => _buildPageWithAnimation(
+              child: HelpFaqScreen(),
               state: state,
             ),
       ),

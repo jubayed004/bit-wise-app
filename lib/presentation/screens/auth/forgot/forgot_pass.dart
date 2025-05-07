@@ -1,4 +1,6 @@
 import 'package:betwise_app/controller/get_controllers.dart';
+import 'package:betwise_app/core/route/route_path.dart';
+import 'package:betwise_app/core/route/routes.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
 import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
@@ -21,7 +23,8 @@ class ForgotPassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
+
       body: Center(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -31,20 +34,21 @@ class ForgotPassScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomText(text: "verify_your_email",
+                CustomText(text: "Verify Your Email",
                     fontWeight: FontWeight.w800,
                     fontSize: 24),
                 Gap(8),
                 CustomText(
-                    text: "well_send_a_verification_code_to_this_email_to_confirm_your_account"
+                    text: "Access your account and stay ahead with expert picks."
                         , color: AppColors.secondTextColor, maxLines: 3),
                 const Gap(24),
 
                 //=============================== Email text ==================================
-                CustomAlignText(text: "email"),
+                CustomAlignText(text: "Email"),
                 const Gap(8),
                 CustomTextField(
-                  hintText: "enter_your_email",
+                  fillColor: Colors.white,
+                  hintText: "Verify Your Email",
                   keyboardType: TextInputType.emailAddress,
                   textEditingController: _authController.forgetEmail,
                   validator: (value) {
@@ -65,9 +69,7 @@ class ForgotPassScreen extends StatelessWidget {
                   return CustomButton(
                     isLoading: _authController.forgetLoading.value,
                     title: "continue", onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      _authController.forget();
-                    }
+                    AppRouter.route.goNamed(RoutePath.verifyOtpScreen);
                   },
                   );
                 }),

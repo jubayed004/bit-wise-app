@@ -64,8 +64,8 @@ class VerifyOtpScreen extends StatelessWidget {
                 ///==================== PIN Put input Field =======================
                 Align(
                   alignment: Alignment.center,
-                  child: CustomPinCode(
-                    controller: isSignUp? _authController.accountVerifyOtp: _authController.verifyOtp,
+                  child: CustomPinCode(controller: TextEditingController(),
+                  //  controller: isSignUp? _authController.accountVerifyOtp: _authController.verifyOtp,
                   ),
                 ),
                 Row(
@@ -107,7 +107,11 @@ class VerifyOtpScreen extends StatelessWidget {
 
           CustomButton(
                     onTap: () {
-                       AppRouter.route.goNamed(RoutePath.subscriptionScreen);
+
+                        AppRouter.route.goNamed(RoutePath.signInScreen);
+
+
+
                     },
                     title: "Confirm",
                  /*   isLoading: isSignUp

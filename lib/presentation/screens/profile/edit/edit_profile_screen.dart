@@ -1,10 +1,15 @@
-/*
 import 'dart:io';
 import 'package:betwise_app/controller/get_controllers.dart';
+import 'package:betwise_app/core/route/route_path.dart';
+import 'package:betwise_app/core/route/routes.dart';
+import 'package:betwise_app/helper/dialog/show_custom_animated_dialog.dart';
 import 'package:betwise_app/helper/image/network_image.dart';
 import 'package:betwise_app/presentation/components/custom_button/custom_button.dart';
+import 'package:betwise_app/presentation/components/custom_text/custom_text.dart';
 import 'package:betwise_app/presentation/components/custom_text_field/custom_text_field.dart';
+import 'package:betwise_app/presentation/screens/nav/controller/navigation_controller.dart';
 import 'package:betwise_app/presentation/widget/align/custom_align_text.dart';
+import 'package:betwise_app/presentation/widget/back_button/back_button.dart';
 import 'package:betwise_app/presentation/widget/text_field/custom_text_field.dart';
 import 'package:betwise_app/utils/app_colors/app_colors.dart';
 
@@ -22,13 +27,22 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final controller = GetControllers.instance.getProfileController();
+  final controllerNav = GetControllers.instance.getNavigationControllerMain();
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("edit_profile".tr),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: CustomText(text: "Edit Profile ",fontSize: 16,fontWeight: FontWeight.w500,),
+          leading:CustomBackButton(
+            onTap: () {
+              AppRouter.route.pop();
+            },
+          )
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
@@ -74,61 +88,57 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               ),
               Gap(24),
               ///=============================== Full name text ==================================
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        CustomAlignText(text: "first_name"),
-                        Gap(8.0),
-                        CustomTextField(
-                          hintText: "John".tr,
-                          keyboardType: TextInputType.emailAddress,
-                          textEditingController: controller.firstName,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'first_name_is_required'.tr;
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Gap(12),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        CustomAlignText(text: "last_name"),
-                        Gap(8.0),
-                        CustomTextField(
-                          hintText: "Doe".tr,
-                          keyboardType: TextInputType.emailAddress,
-                          textEditingController: controller.lastname,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'last_name_is_required'.tr;
-                            }
-                            return null;
-                          },
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              const Gap(12),
-
-              ///=============================== PHONE text ==================================
-              CustomAlignText(text: "${ "phone_number".tr}:"),
-              const Gap(8),
+              CustomAlignText(text: "Name",fontWeight: FontWeight.w500,),
+              Gap(8.0),
               CustomTextField(
-                hintText: "enter_phone_number".tr,
-                keyboardType: TextInputType.number,
-                controller: controller.phone,
+                fillColor: Colors.white,
+                hintText: "Ely Mohammed",
+                keyboardType: TextInputType.emailAddress,
+                textEditingController: controller.firstName,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'phone_number_is_required'.tr;
+                    return 'first_name_is_required';
+                  }
+                  return null;
+                },
+              ),
+
+              Gap(14),
+              CustomAlignText(text: "Email",fontWeight: FontWeight.w500,),
+              Gap(8.0),
+              CustomTextField(
+                hintText: "michelle.rivera@example.com",
+                fieldBorderColor: AppColors.secondTextColor,
+                fieldBorderRadius: 10,
+                fillColor: Colors.white,
+                keyboardType: TextInputType.emailAddress,
+                //textEditingController:controller.emailSignUp,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Email_is_required';
+                  }
+                  final emailRegex = RegExp(
+                    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                  );
+                  if (!emailRegex.hasMatch(value)) {
+                    return 'Enter_a_valid_email';
+                  }
+                  return null;
+                },
+              ),
+              Gap(14),
+
+              ///=============================== PHONE text ==================================
+              CustomAlignText(text: " Contact number",fontWeight: FontWeight.w500,),
+              const Gap(8),
+              CustomTextField(
+                fillColor: Colors.white,
+                hintText: "(603) 555-0123",
+                keyboardType: TextInputType.number,
+                //textEditingController: controller.phone,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'phone_number_is_required';
                   }
                   return null;
                 },
@@ -138,19 +148,73 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
               ///=============================== Sign Up text ==================================
               const Gap(12),
-              Obx(() {
-                return CustomButton(
-                  title: "update",
+          CustomButton(
+            title: "Update",
 
-                  isLoading: controller.isUpdateLoading.value,
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
+            isLoading: controller.isUpdateLoading.value,
+            onTap: () {
+              /*  if (_formKey.currentState!.validate()) {
                       controller.updateProfile();
-                    }
-                  },
-                );
-              }),
-              const Gap(44),
+                    }*/
+
+              showCustomAnimatedDialog(
+                animationSrc: "assets/images/warning.png",
+                context: context,
+                title: "Warning",
+                subtitle: "Are you sure you want to update your profile information?",
+                actionButton: [
+                  CustomButton(
+                    width: double.infinity,
+                    height: 36,
+                    fillColor: Colors.white,                 // White background
+                    borderWidth: 1,                          // Border width
+                    borderColor: AppColors.greenColor,               // Border color (black)
+                    onTap: () {
+                      AppRouter.route.pop();
+                    },
+                    textColor: AppColors.greenColor,
+                    title: "Cancel",
+                    isBorder: true,
+                    fontSize: 14,// Ensure the border is visible
+                  ),
+                  CustomButton(
+                    width: double.infinity,
+                    height: 36,
+                    onTap: ()async{
+
+                      AppRouter.route.pop();
+                      await Future.delayed(Duration(milliseconds: 100));
+                      showCustomAnimatedDialog(
+                        context: context,
+                        title: "Success",
+                        subtitle: "Your profile has been updated successfully.",
+                        animationSrc: "assets/animation/success.json",  // Path to your Lottie animation
+                        isDismissible: true,
+                        actionButton: [
+                          CustomButton(
+                            height: 36,
+                            width: 100,
+                            onTap: () {
+                              AppRouter.route.pop();
+                              AppRouter.route.pop();
+                            },
+                            title: "Confirm",
+                            fontSize: 14,
+                          ),
+                        ],
+                      );
+
+                    },
+                    title: " Confirm",
+                    fontSize: 14,
+
+                  ),
+                ],
+              );
+
+
+            },
+          )
             ],
           ),
         ),
@@ -158,4 +222,3 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     );
   }
 }
-*/

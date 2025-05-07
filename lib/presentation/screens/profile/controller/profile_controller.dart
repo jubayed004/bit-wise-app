@@ -56,6 +56,12 @@ class ProfileController extends GetxController {
   RxBool isUpdateLoading = false.obs;
   TextEditingController firstName = TextEditingController();
   TextEditingController lastname = TextEditingController();
+  Future<void> pickImage() async {
+    XFile? image = await _imagePicker.pickImage(source: ImageSource.gallery, imageQuality: 80);
+    if (image != null) {
+      selectedImage.value = image;
+    }
+  }
 
 /*  Future<void> pickImage() async {
     XFile? image = await _imagePicker.pickImage(source: ImageSource.gallery, imageQuality: 80);

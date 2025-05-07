@@ -25,7 +25,11 @@ class _SearchDrawerState extends State<SearchDrawer> {
 
   final controller = GetControllers.instance.getSearchScreenController();
 
-  final List<String> distance = ["5 Km", "10 Km", "25 Km", "50 Km"];
+  final List<String> shortByList = ["Latest First", "Oldest First", "Highest Odds", "Lowest Odds","Most Popular Tips","Trending Now"];
+  final List<String> sportsList = ["All Sports", "Basketball", "Football (Soccer)", "Tennis","UFC","NFL"];
+  final List<String> predictionType = ["All Types", "Over/Under", "Moneyline", "Spread","Handicap"];
+  final List<String> analystType   = ["All Analysts", "Gold Analyst", "Silver Analyst", "Bronze Analyst"];
+  final List<String> oddsRange  = ["1.50 - 1.90", "2.00 - 2.50", "2.50+", "All Range"];
 
   @override
   void dispose() {
@@ -40,6 +44,9 @@ class _SearchDrawerState extends State<SearchDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(6)
+      ),
       backgroundColor: Color(0xFFF0FDF4),
       child: SingleChildScrollView(
         child: Padding(
@@ -79,15 +86,15 @@ class _SearchDrawerState extends State<SearchDrawer> {
                 ),
                 hint: CustomText(
                   text: "Select One ", color: AppColors.blackColor,fontSize: 16),
-                items: distance.map((item) =>
+                items: shortByList.map((item) =>
                     DropdownMenuItem<String>(
                       value: item,
                       child: CustomText(text: item),
                     )).toList(),
                 onChanged: (value) {
-                  if (value != null) {
+                /*  if (value != null) {
                     controller.categoryId.value = value;
-                  }
+                  }*/
                 },
                 style: TextStyle(color: AppColors.blackColor),
                 buttonStyleData: const ButtonStyleData(
@@ -124,7 +131,7 @@ class _SearchDrawerState extends State<SearchDrawer> {
                 ),
                 hint: CustomText(
                   text: "Select One ", color: AppColors.blackColor,fontSize: 16,),
-                items: distance.map((item) =>
+                items: sportsList.map((item) =>
                     DropdownMenuItem<String>(
                       value: item,
                       child: CustomText(text: item),
@@ -168,7 +175,7 @@ class _SearchDrawerState extends State<SearchDrawer> {
             ),
             hint: CustomText(
               text: "Select One ", color: AppColors.blackColor,fontSize: 16,),
-            items: distance.map((
+            items: predictionType.map((
                 item) =>
                 DropdownMenuItem<String>(
                   value: item,
@@ -214,7 +221,7 @@ class _SearchDrawerState extends State<SearchDrawer> {
                 ),
                 hint: CustomText(
                   text: "Select One ".tr, color: AppColors.blackColor,fontSize: 16,),
-                items: distance.map((item) =>
+                items: analystType.map((item) =>
                     DropdownMenuItem<String>(
                       value: item,
                       child: CustomText(text: item),
@@ -261,7 +268,7 @@ class _SearchDrawerState extends State<SearchDrawer> {
                 ),
                 hint: CustomText(
                   text: "Select One ".tr, color: AppColors.blackColor,fontSize: 16,),
-                items: distance.map((item) =>
+                items: oddsRange.map((item) =>
                     DropdownMenuItem<String>(
                       value: item,
                       child: CustomText(text: item),

@@ -49,9 +49,83 @@ class SearchScreenController extends GetxController{
         "─ Lakers Win by Spread",
       ],
       analystLabel: "Gold Analyst",
+      image: Assets.images.homeimage.image(),
+      // Example URL
+    ),
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
+      image: Assets.images.homeimage.image(),
+      // Example URL
+    ),
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
       image: Assets.images.hometwo.image(),
       // Example URL
     ),
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
+      image: Assets.images.hometwo.image(),
+      // Example URL
+    ),
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
+      image: Assets.images.hometwo.image(),
+      // Example URL
+    ),
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
+      image: Assets.images.homethreeimge.image(),
+      // Example URL
+    ),
+
+
+    CustomPostWidget(
+      timeAgo: "Posted 2h ago",
+      matchTitle: "🏀 Los Angeles Lakers ─vs─ Golden State Warriors.",
+      predictions: [
+        "─ Over 220.5 Points @ 1.95",
+        "─ Lakers Win by Spread",
+      ],
+      analystLabel: "Gold Analyst",
+      image: Assets.images.homethreeimge.image(),
+      // Example URL
+    ),
+
 
     CustomPostWidget(
       timeAgo: "Posted 2h ago",

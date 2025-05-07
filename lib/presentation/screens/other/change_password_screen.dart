@@ -22,7 +22,7 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   final controller = GetControllers.instance.getOtherController();
-
+  final controllerNav = GetControllers.instance.getNavigationControllerMain();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -153,7 +153,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                   height: 36,
                                   width: 100,
                                   onTap: () {
-                                    AppRouter.route.goNamed(RoutePath.settingsScreen);  // Navigate
+                                    AppRouter.route.pop();  // Navigate
                                   },
                                   title: "Confirm",
                                   fontSize: 14,
